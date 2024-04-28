@@ -20,7 +20,9 @@ def launch():
     print(hello)
     print("-" * len(hello))
     print()
-    start()
+    while True:
+        start()
+        print()
 
 
 def start():
@@ -43,7 +45,7 @@ def start_integral(n, parameters):
     show_available_methods()
     while True:
         ans = get_input()
-        if ans not in ["1", "2", "3"]:
+        if ans not in ["1", "2", "3", "4", "5"]:
             print("Please, choose one of the available methods.")
         else:
             break
