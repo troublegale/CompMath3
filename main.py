@@ -1,8 +1,9 @@
-import numpy as np
-import sympy as sp
-from sympy.abc import x
+from user_io import launch
 
-f = x**2 - 3*x + 2
 
-limit_value = sp.limit(f, x, 1)
-print(limit_value)
+def main():
+    launch()
+
+
+if __name__ == "__main__":
+    main()

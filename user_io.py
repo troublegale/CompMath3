@@ -10,7 +10,7 @@ def get_input():
 
 
 def close_application_appropriately():
-    print("Closing application...")
+    print("\nClosing application...")
     exit()
 
 
