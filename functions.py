@@ -8,3 +8,11 @@ def f2(x):
 
 def f3(x):
     return 4*x**3 - 3*x**2 + 5*x - 20
+
+
+def f4(x):
+    return (4*x**2 - 12*x + 2) / (x + 15)
+
+
+def f5(x):
+    return (13*x - 2) / (x**2 + 5*x - 6)

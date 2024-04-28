@@ -1,5 +1,4 @@
 from integral_methods import *
-from improper_integral_methods import *
 
 
 def get_input():
@@ -16,7 +15,7 @@ def close_application_appropriately():
 
 def launch():
     hello = "Computational Mathematics Lab 3: Integrals"
-    print("-"*len(hello))
+    print("-" * len(hello))
     print(hello)
     print("-" * len(hello))
     print()
@@ -35,10 +34,15 @@ def start():
             break
     n = int(ans)
     parameters = get_integral_parameters()
-    if n < 4:
-        start_integral(n, parameters)
-    else:
-        start_improper_integral(n, parameters)
+    if n >= 4:
+        convergence = converges(n, parameters[0], parameters[1])
+        if not convergence[0]:
+            if convergence[1]:
+                print(f"The integral diverges: discontinuity at boundary point {convergence[2]}")
+            else:
+                print(f"The integral diverges: discontinuity inside the interval at {convergence[2]}")
+            return
+    start_integral(n, parameters)
 
 
 def start_integral(n, parameters):
@@ -99,22 +103,14 @@ def show_integral_result(result):
     print(f"Total number of intervals: {result[1]}")
 
 
-def start_improper_integral(n, parameters):
-    result = solve_improper_integral(n, parameters)
-    if result[0]:
-        print(f"Calculated value: {result[1]}")
-    else:
-        print("Integral does not converge.")
-
-
 def show_available_functions():
     print("Choose one of the available functions:")
     print("""2x^3 - 3x^2 + 5x - 9\t(1)
 -x^3 - x^2 - 2x + 1\t\t(2)
 4x^3 - 3x^2 + 5x - 20\t(3)
 Functions for calculating improper integrals:
----\t(4)
----\t(5)""")
+(4x^2 - 12x + 2) / (x + 15)\t(4)
+(13x - 2) / (x^2 + 5x - 6)\t(5)""")
 
 
 def show_available_methods():
